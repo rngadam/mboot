@@ -9,7 +9,7 @@
 
 #include "types.h"
 
-#define MBOOT_VER 			"0.3-tabby"
+#define MBOOT_VER 			"0.31-tabby"
 
 #define DEBUG_ENABLE		0
 

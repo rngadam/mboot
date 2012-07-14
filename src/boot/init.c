@@ -38,9 +38,8 @@ int main()
 	mbootBanner();
 	
 	Init_RTC();
-	Init_SHA204();
 	Init_Media();
-	
+	Init_SHA204();
 	SYS_UNRESET();
 	BTNDIS_N();
 	

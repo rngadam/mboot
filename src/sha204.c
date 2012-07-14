@@ -239,13 +239,24 @@ U8 SHA204_Cmd_Read(U8 zone, U16 address)
 
 void Init_SHA204(void)
 {
-	if(SHA204_RawDataRX()==SHA204_DATA_WAKEUP){
-		if(SHA204_Cmd_Read(0, 1)==SHA204_CMD_FINISH){
-			TRACE_MSG("SHA204 security device detected ver%d.%d.%d.%d", SHA204_RX_data[3], SHA204_RX_data[2], SHA204_RX_data[1], SHA204_RX_data[0]);
+	U8 status, retry;
+	retry = 0;
+	status = 0xFF;
+	
+	TWI_Reset();
+	
+	while((status != SHA204_DATA_WAKEUP)&&(++retry < 10))
+	{
+		status = SHA204_RawDataRX();
+		if(status == SHA204_DATA_WAKEUP){
+			TWI_Reset();
+			Delay_ms(5);
+			if(SHA204_Cmd_Read(0, 1)==SHA204_CMD_FINISH){
+				TRACE_MSG("SHA204 security device detected ver%d.%d.%d.%d", SHA204_RX_data[3], SHA204_RX_data[2], SHA204_RX_data[1], SHA204_RX_data[0]);
+			}
+			else TRACE_ERR("SHA204 security device data error!");
 		}
-		else TRACE_ERR("SHA204 security device data error!");
 	}
-	else TRACE_WRN("No SHA204 security device detected!");
 }
 
 void Debug_SHA204(void)
