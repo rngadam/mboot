@@ -5,8 +5,8 @@ mboot is a bootloader located in micro SDcard for booting Linux on Lophilo tabby
 
 This program is developed by:
 
-* Shyu Lee `shyul@lophilo.com`
-* Ricky Ng-Adam `rngadam@lophilo.com`
+* Shyu Lee `shyul@lophilo.com` (code draft up, experience design.)
+* Ricky Ng-Adam `rngadam@lophilo.com` (Linux specialist.)
 
 Copyright (C) 2012 Lophilo
 

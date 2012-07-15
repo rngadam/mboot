@@ -11,6 +11,7 @@
 #include "types.h"
 #include "trace.h"
 #include "media.h"
+#include "rtc.h"
 #include "diskio.h"
 #include "integer.h"
 #include "ffconfig.h"
@@ -202,6 +203,6 @@ DWORD get_fattime(void)
 {
 	U32 time;
 
-	time = ((2012-1980)<<25) | (8<<21) | (9<<16) | (20<<11) | (30<<5) | ((59/2)<<0);
+	time = ((RTC_GetYear()+2000-1980)<<25) | (RTC_GetMonth()<<21) | (RTC_GetDate()<<16) | (RTC_GetHour()<<11) | (RTC_GetMinute()<<5) | ((RTC_GetSec()/2)<<0);
 	return time;
 }

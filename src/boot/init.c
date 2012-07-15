@@ -40,6 +40,7 @@ int main()
 	Init_RTC();
 	Init_Media();
 	Init_SHA204();
+	
 	SYS_UNRESET();
 	BTNDIS_N();
 	

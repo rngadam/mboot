@@ -76,3 +76,34 @@ void Init_RTC(void)
 		TRACE_MSG("System Time: %s-%d-%d, %02d:%02d:%02d", month[d_mon], d_date, d_year, t_hour, t_min, t_sec);
 	}
 }
+
+U8 RTC_GetSec(void)
+{
+	return BCD2INT((U8)((rRTC_TIMR)&(0x7F)));
+}
+
+U8 RTC_GetMinute(void)
+{
+	return BCD2INT((U8)((rRTC_TIMR>>8)&(0x7F)));
+}
+
+U8 RTC_GetHour(void)
+{
+	if((rRTC_MR)&&((rRTC_TIMR>>22)&(0x1))) return BCD2INT((U8)((rRTC_TIMR>>16)&(0x3F))) + 12;
+	return t_hour = BCD2INT((U8)((rRTC_TIMR>>16)&(0x3F)));
+}
+
+U8 RTC_GetDate(void)
+{
+	return BCD2INT((U8)((rRTC_CALR>>24)&(0x3F)));
+}
+
+U8 RTC_GetMonth(void)
+{
+	return BCD2INT((U8)((rRTC_CALR>>16)&(0x1F)));
+}
+
+U8 RTC_GetYear(void)
+{
+	return BCD2INT((U8)((rRTC_CALR>>8)&(0xFF)));
+}
