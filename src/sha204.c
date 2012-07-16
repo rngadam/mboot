@@ -29,6 +29,9 @@ U8 SHA204_RX_crc[2];
 U8 SHA204_RX_len;
 U8 SHA204_crc[2];
 
+U32 board_id_l, board_id_h;
+U8 id_buf[8];
+
 U8 SHA204_SetStatus(U8 wdaddr)
 {
 	if(SHA204_TX_len == 0) return SHA204_DATA_NODATA;
@@ -257,6 +260,28 @@ void Init_SHA204(void)
 			else TRACE_ERR("SHA204 security device data error!");
 		}
 	}
+
+	board_id_l = 0;
+	board_id_h = 0;
+	
+	status = SHA204_Cmd_Read(0, 0);
+	id_buf[0] = SHA204_RX_data[2];
+	id_buf[1] = SHA204_RX_data[3];
+
+	status = SHA204_Cmd_Read(0, 2);
+	id_buf[2] = SHA204_RX_data[0];
+	id_buf[3] = SHA204_RX_data[1];
+	id_buf[4] = SHA204_RX_data[2];
+	id_buf[5] = SHA204_RX_data[3];	
+	id_buf[6] = 0x68;
+	id_buf[7] = 0xEA;
+
+	if(status==SHA204_CMD_FINISH){
+		TRACE_MSG("ATAG_SERIAL/Hardware UUID: %02X:%02X:%02X:%02X:%02X:%02X:%02X:%02X", id_buf[7], id_buf[6], id_buf[5], id_buf[4], id_buf[3], id_buf[2], id_buf[1], id_buf[0]);
+		board_id_l = ((id_buf[3]<<24) + (id_buf[2]<<16) + (id_buf[1]<<8) + id_buf[0]);
+		board_id_h = ((id_buf[7]<<24) + (id_buf[6]<<16) + (id_buf[5]<<8) + id_buf[4]);
+	}
+	else TRACE_ERR("SHA204 security device data error!");
 }
 
 void Debug_SHA204(void)

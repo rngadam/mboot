@@ -17,11 +17,12 @@
 #include "sfr.h"
 #include "board.h"
 #include "system.h"
+#include "twi.h"
 #include "fpga.h"
 #include "leds.h"
 #include "uart.h"
+#include "emac.h"
 #include "rtc.h"
-#include "twi.h"
 
 #include "init.h"
 
@@ -29,6 +30,7 @@ static void mbootBanner(void);
 
 int main()
 {
+	BTNDIS_P();
 	Init_LEDS();
 	Init_TIMER();
 	Init_FPGA();
@@ -40,9 +42,8 @@ int main()
 	Init_RTC();
 	Init_Media();
 	Init_SHA204();
-	
+	Init_EMAC();
 	SYS_UNRESET();
-	BTNDIS_N();
 	
 	mboot();
 

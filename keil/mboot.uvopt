@@ -218,10 +218,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>46</TopLine>
-      <CurrentLine>66</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>38</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\mboot.c</PathWithFileName>
       <FilenameWithoutPath>mboot.c</FilenameWithoutPath>
@@ -274,10 +274,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>4</ColumnNumber>
+      <ColumnNumber>7</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>227</TopLine>
-      <CurrentLine>254</CurrentLine>
+      <TopLine>239</TopLine>
+      <CurrentLine>284</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\sha204.c</PathWithFileName>
       <FilenameWithoutPath>sha204.c</FilenameWithoutPath>
@@ -351,10 +351,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>11</ColumnNumber>
+      <ColumnNumber>8</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>24</TopLine>
-      <CurrentLine>49</CurrentLine>
+      <TopLine>7</TopLine>
+      <CurrentLine>44</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\boot\init.c</PathWithFileName>
       <FilenameWithoutPath>init.c</FilenameWithoutPath>
@@ -402,8 +402,8 @@
       <Focus>0</Focus>
       <ColumnNumber>25</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>3</TopLine>
+      <CurrentLine>32</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\drivers\uart.c</PathWithFileName>
       <FilenameWithoutPath>uart.c</FilenameWithoutPath>
@@ -428,10 +428,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>3</ColumnNumber>
+      <ColumnNumber>2</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>214</TopLine>
+      <CurrentLine>248</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\drivers\mci_hs.c</PathWithFileName>
       <FilenameWithoutPath>mci_hs.c</FilenameWithoutPath>
@@ -452,14 +452,28 @@
     </File>
     <File>
       <GroupNumber>3</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>1</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>11</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>1</TopLine>
+      <CurrentLine>25</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\src\drivers\emac.c</PathWithFileName>
+      <FilenameWithoutPath>emac.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
       <FileNumber>17</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>30</ColumnNumber>
+      <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>4</TopLine>
+      <CurrentLine>32</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\src\drivers\fpga.c</PathWithFileName>
       <FilenameWithoutPath>fpga.c</FilenameWithoutPath>

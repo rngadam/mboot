@@ -479,6 +479,11 @@
               <FilePath>..\src\drivers\twi.c</FilePath>
             </File>
             <File>
+              <FileName>emac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\drivers\emac.c</FilePath>
+            </File>
+            <File>
               <FileName>fpga.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\drivers\fpga.c</FilePath>

@@ -388,19 +388,66 @@
 #define rTWI_RHR				(*(volatile U32 *)(0xFFF84030)) // Receive Holding Register Read-only 0x00000000
 #define rTWI_THR				(*(volatile U32 *)(0xFFF84034)) // Transmit Holding Register Write-only 0x00000000
 
+#define rEMAC_NCR				(*(volatile U32 *)(0xFFFBC000)) // Network Control Register  Read-write 0
+#define rEMAC_NCFG			(*(volatile U32 *)(0xFFFBC004)) // Network Configuration Register  Read-write 0x800
+#define rEMAC_NSR				(*(volatile U32 *)(0xFFFBC008)) // Network Status Register  Read-only -
+#define rEMAC_TSR				(*(volatile U32 *)(0xFFFBC014)) // Transmit Status Register  Read-write 0x0000_0000
+#define rEMAC_RBQP			(*(volatile U32 *)(0xFFFBC018)) // Receive Buffer Queue Pointer Register  Read-write 0x0000_0000
+#define rEMAC_TBQP			(*(volatile U32 *)(0xFFFBC01C)) // Transmit Buffer Queue Pointer Register  Read-write 0x0000_0000
+#define rEMAC_RSR				(*(volatile U32 *)(0xFFFBC020)) // Receive Status Register  Read-write 0x0000_0000
+#define rEMAC_ISR				(*(volatile U32 *)(0xFFFBC024)) // Interrupt Status Register  Read-write 0x0000_0000
+#define rEMAC_IER				(*(volatile U32 *)(0xFFFBC028)) // Interrupt Enable Register  Write-only -
+#define rEMAC_IDR				(*(volatile U32 *)(0xFFFBC02C)) // Interrupt Disable Register  Write-only -
+#define rEMAC_IMR				(*(volatile U32 *)(0xFFFBC030)) // Interrupt Mask Register  Read-only 0x0000_7FFF
+#define rEMAC_MAN				(*(volatile U32 *)(0xFFFBC034)) // Phy Maintenance Register  Read-write 0x0000_0000
+#define rEMAC_PTR				(*(volatile U32 *)(0xFFFBC038)) // Pause Time Register  Read-write 0x0000_0000
+#define rEMAC_PFR				(*(volatile U32 *)(0xFFFBC03C)) // Pause Frames Received Register  Read-write 0x0000_0000
+#define rEMAC_FTO				(*(volatile U32 *)(0xFFFBC040)) // Frames Transmitted Ok Register  Read-write 0x0000_0000
+#define rEMAC_SCF				(*(volatile U32 *)(0xFFFBC044)) // Single Collision Frames Register  Read-write 0x0000_0000
+#define rEMAC_MCF				(*(volatile U32 *)(0xFFFBC048)) // Multiple Collision Frames Register  Read-write 0x0000_0000
+#define rEMAC_FRO				(*(volatile U32 *)(0xFFFBC04C)) // Frames Received Ok Register  Read-write 0x0000_0000
+#define rEMAC_FCSE			(*(volatile U32 *)(0xFFFBC050)) // Frame Check Sequence Errors Register  Read-write 0x0000_0000
+#define rEMAC_ALE				(*(volatile U32 *)(0xFFFBC054)) // Alignment Errors Register  Read-write 0x0000_0000
+#define rEMAC_DTF				(*(volatile U32 *)(0xFFFBC058)) // Deferred Transmission Frames Register  Read-write 0x0000_0000
+#define rEMAC_LCOL			(*(volatile U32 *)(0xFFFBC05C)) // Late Collisions Register  Read-write 0x0000_0000
+#define rEMAC_ECOL			(*(volatile U32 *)(0xFFFBC060)) // Excessive Collisions Register  Read-write 0x0000_0000
+#define rEMAC_TUND			(*(volatile U32 *)(0xFFFBC064)) // Transmit Underrun Errors Register  Read-write 0x0000_0000
+#define rEMAC_CSE				(*(volatile U32 *)(0xFFFBC068)) // Carrier Sense Errors Register  Read-write 0x0000_0000
+#define rEMAC_RRE				(*(volatile U32 *)(0xFFFBC06C)) // Receive Resource Errors Register  Read-write 0x0000_0000
+#define rEMAC_ROV				(*(volatile U32 *)(0xFFFBC070)) // Receive Overrun Errors Register  Read-write 0x0000_0000
+#define rEMAC_RSE				(*(volatile U32 *)(0xFFFBC074)) // Receive Symbol Errors Register  Read-write 0x0000_0000
+#define rEMAC_ELE				(*(volatile U32 *)(0xFFFBC078)) // Excessive Length Errors Register  Read-write 0x0000_0000
+#define rEMAC_RJA				(*(volatile U32 *)(0xFFFBC07C)) // Receive Jabbers Register  Read-write 0x0000_0000
+#define rEMAC_USF				(*(volatile U32 *)(0xFFFBC080)) // Undersize Frames Register  Read-write 0x0000_0000
+#define rEMAC_STE				(*(volatile U32 *)(0xFFFBC084)) // SQE Test Errors Register  Read-write 0x0000_0000
+#define rEMAC_RLE				(*(volatile U32 *)(0xFFFBC088)) // Received Length Field Mismatch Register  Read-write 0x0000_0000
+#define rEMAC_HRB				(*(volatile U32 *)(0xFFFBC090)) // Hash Register Bottom [31:0] Register  Read-write 0x0000_0000
+#define rEMAC_HRT				(*(volatile U32 *)(0xFFFBC094)) // Hash Register Top [63:32] Register  Read-write 0x0000_0000
+#define rEMAC_SA1B			(*(volatile U32 *)(0xFFFBC098)) // Specific Address 1 Bottom Register  Read-write 0x0000_0000
+#define rEMAC_SA1T			(*(volatile U32 *)(0xFFFBC09C)) // Specific Address 1 Top Register  Read-write 0x0000_0000
+#define rEMAC_SA2B			(*(volatile U32 *)(0xFFFBC0A0)) // Specific Address 2 Bottom Register  Read-write 0x0000_0000
+#define rEMAC_SA2T			(*(volatile U32 *)(0xFFFBC0A4)) // Specific Address 2 Top Register  Read-write 0x0000_0000
+#define rEMAC_SA3B			(*(volatile U32 *)(0xFFFBC0A8)) // Specific Address 3 Bottom Register  Read-write 0x0000_0000
+#define rEMAC_SA3T			(*(volatile U32 *)(0xFFFBC0AC)) // Specific Address 3 Top Register  Read-write 0x0000_0000
+#define rEMAC_SA4B			(*(volatile U32 *)(0xFFFBC0B0)) // Specific Address 4 Bottom Register  Read-write 0x0000_0000
+#define rEMAC_SA4T			(*(volatile U32 *)(0xFFFBC0B4)) // Specific Address 4 Top Register  Read-write 0x0000_0000
+#define rEMAC_TID				(*(volatile U32 *)(0xFFFBC0B8)) // Type ID Checking Register  Read-write 0x0000_0000
+#define rEMAC_USRIO			(*(volatile U32 *)(0xFFFBC0C0)) // User Input/Output Register  Read-write 0x0000_0000
+#define rEMAC_WOL				(*(volatile U32 *)(0xFFFBC0C4)) // Wake on LAN Register  Read-write 0x0000_0000
+
 #define rPWM_MR 				(*(volatile U32 *)(0xFFFB8000))
-#define rPWM_ENA				(*(volatile U32 *)(0xFFFB8000+0x04))
-#define rPWM_DIS				(*(volatile U32 *)(0xFFFB8000+0x08))
-#define rPWM_SR					(*(volatile U32 *)(0xFFFB8000+0x0C))
-#define rPWM_IER				(*(volatile U32 *)(0xFFFB8000+0x10))
-#define rPWM_IDR				(*(volatile U32 *)(0xFFFB8000+0x14))
-#define rPWM_IMR				(*(volatile U32 *)(0xFFFB8000+0x18))
-#define rPWM_ISR				(*(volatile U32 *)(0xFFFB8000+0x1C))
-#define rPWM_CMR(ch)		(*(volatile U32 *)(0xFFFB8000+0x200+ch*0x20+0x00))
-#define rPWM_CDTY(ch)		(*(volatile U32 *)(0xFFFB8000+0x200+ch*0x20+0x04))
-#define rPWM_CPRD(ch)		(*(volatile U32 *)(0xFFFB8000+0x200+ch*0x20+0x08))
-#define rPWM_CCNT(ch)		(*(volatile U32 *)(0xFFFB8000+0x200+ch*0x20+0x0C))
-#define rPWM_CUPD(ch)		(*(volatile U32 *)(0xFFFB8000+0x200+ch*0x20+0x10))
+#define rPWM_ENA				(*(volatile U32 *)(0xFFFB8004))
+#define rPWM_DIS				(*(volatile U32 *)(0xFFFB8008))
+#define rPWM_SR					(*(volatile U32 *)(0xFFFB800C))
+#define rPWM_IER				(*(volatile U32 *)(0xFFFB8010))
+#define rPWM_IDR				(*(volatile U32 *)(0xFFFB8014))
+#define rPWM_IMR				(*(volatile U32 *)(0xFFFB8018))
+#define rPWM_ISR				(*(volatile U32 *)(0xFFFB801C))
+#define rPWM_CMR(ch)		(*(volatile U32 *)(0xFFFB8200+ch*0x20))
+#define rPWM_CDTY(ch)		(*(volatile U32 *)(0xFFFB8204+ch*0x20))
+#define rPWM_CPRD(ch)		(*(volatile U32 *)(0xFFFB8208+ch*0x20))
+#define rPWM_CCNT(ch)		(*(volatile U32 *)(0xFFFB820C+ch*0x20))
+#define rPWM_CUPD(ch)		(*(volatile U32 *)(0xFFFB8210+ch*0x20))
 
 #define rTC0_CCR(ch)		(*(volatile U32 *)(0xFFF7C000+ch*0x40+0x00))		// Channel Control Register  Write-only ¨C
 #define rTC0_CMR(ch)		(*(volatile U32 *)(0xFFF7C000+ch*0x40+0x04))		// Channel Mode Register  Read-write 0
