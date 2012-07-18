@@ -147,7 +147,10 @@ static void Boot_Linux(void)
 	*((volatile U32 *)(ZPARAMADDR + 4*7)) = ATAG_REVISION;	
 	*((volatile U32 *)(ZPARAMADDR + 4*8)) = BOARD_VER;	
 	
-	*((volatile U32 *)(ZPARAMADDR + 4*9)) = (4 + kcmdFileSize + 5) >> 2;
+// 	*((volatile U32 *)(ZPARAMADDR + 4*9)) = (4 + kcmdFileSize + 5) >> 2;
+// 	*((volatile U32 *)(ZPARAMADDR + 4*10)) = ATAG_CMDLINE;
+	
+	*((volatile U32 *)(ZPARAMADDR + 4*9)) = 2 + (kcmdFileSize >> 2) + 1;
 	*((volatile U32 *)(ZPARAMADDR + 4*10)) = ATAG_CMDLINE;
 
 	for(i=0;i<64;i++) for(j=0;j<8;j++) CP15_CleanInvalidateDcacheIndex((i<<26)|(j<<5));

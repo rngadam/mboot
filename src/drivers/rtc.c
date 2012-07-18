@@ -28,19 +28,23 @@ U8 BCD2INT(U8 bcd)
 
 void Reset_RTC(void)
 {
-	U32 i;
-
-	while ((rRTC_SR & (1 << 2)) != (1 << 2));
+	U32 i, timeout;
+	
+	timeout = 0;
+	while(((rRTC_SR & (1 << 2)) != (1 << 2)) && (++timeout < 10000));
 	rRTC_CR |= (1 << 0);
-	while ((rRTC_SR & (1 << 0)) != (1 << 0));
+	timeout = 0;
+	while(((rRTC_SR & (1 << 0)) != (1 << 0)) && (++timeout < 10000));
 	rRTC_SCCR = (1 << 0);
 	for(i=0; i<10000; i++) rRTC_TIMR = (0x10<<16) + (0x30<<8) + (0x0<<0);
 	rRTC_CR &= ~(1 << 0);
 	rRTC_SCCR |= (1 << 2);
 
-	while ((rRTC_SR & (1 << 2) ) != (1 << 2) );
+	timeout = 0;
+	while(((rRTC_SR & (1 << 2)) != (1 << 2)) && (++timeout < 10000));
 	rRTC_CR |= (1 << 1);
-	while ((rRTC_SR & (1 << 0)) != (1 << 0));
+	timeout = 0;
+	while(((rRTC_SR & (1 << 0)) != (1 << 0)) && (++timeout < 10000));
 	rRTC_SCCR = (1 << 0);
 	rRTC_CALR = (0x8<<24) + (0x7<<21) + (0x7<<16) + (0x12<<8) + (0x20<<0);
 	rRTC_CR &= ~(1 << 1);
