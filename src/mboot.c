@@ -170,30 +170,30 @@ static FRESULT scan_files(char* path)
 	FRESULT res;
 	FILINFO fno;
 	DIR dir;
-	int i;
+//	int i;
 	char *fn;
 
 	res = f_opendir(&dir, path);
 	if (res == FR_OK)
 	{
-		i = strlen(path);
+//		i = strlen(path);
 		for (;;)
 		{
 			res = f_readdir(&dir, &fno);
 			if (res != FR_OK || fno.fname[0] == 0) break;
 			fn = fno.fname;
 			if (*fn == '.') continue;
-			if (fno.fattrib & AM_DIR)
-			{
-				TRACE_MSG(&path[i], "/%s", fn);
-				res = scan_files(path);
-				if (res != FR_OK) break;
-				path[i] = 0;
-			}
-			else
-			{
-				DEBUG_MSG("%s/%s", path, fn);
-			}
+// 			if (fno.fattrib & AM_DIR)
+// 			{
+// 				TRACE_MSG(&path[i], "/%s", fn);
+// 				res = scan_files(path);
+// 				if (res != FR_OK) break;
+// 				path[i] = 0;
+// 			}
+// 			else
+// 			{
+// 				DEBUG_MSG("%s/%s", path, fn);
+// 			}
 		}
 	}
 
