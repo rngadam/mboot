@@ -1609,11 +1609,11 @@ static U8 SdMmcEnum(void)
 
 			if(sd_err || (status & STATUS_SWITCH_ERROR))
 			{
-				TRACE_ERR("SD HS Fail");
+				TRACE_WRN("OS Boot SD Card does not support high speed mode.");
 			}
 			else if(SD_SW_STAT_FUN_GRP1_RC(switchStatus) == SD_SW_STAT_FUN_GRP_RC_ERROR)
 			{
-				TRACE_ERR("SD HS Not Supported");
+				TRACE_WRN("OS Boot SD Card does not support high speed mode.");
 			}
 			else if(SD_SW_STAT_FUN_GRP1_BUSY(switchStatus))
 			{
