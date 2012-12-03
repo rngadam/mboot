@@ -21,7 +21,7 @@
 #define TRACE_MSG_NONR(...)	{ShellPutByte(0x1B); ShellPrintf("[0;0;36minfo:"); ShellPutByte(0x1B); ShellPrintf("[m "); ShellPrintf(__VA_ARGS__);}
 #define TRACE_FIN(...)			{ShellPutByte(0x1B); ShellPrintf("[0;0;32mdone: "); ShellPrintf(__VA_ARGS__); ShellPutByte(0x1B); ShellPrintf("[m"); ShellPrintf("\n\r");}
 #define TRACE_WRN(...)			{ShellPutByte(0x1B); ShellPrintf("[0;0;33mwarn:"); ShellPutByte(0x1B); ShellPrintf("[m "); ShellPrintf(__VA_ARGS__); ShellPrintf("\n\r");}
-#define TRACE_ERR(...)			{ShellPutByte(0x1B); ShellPrintf("[0;0;31merr!: "); ShellPrintf(__VA_ARGS__); ShellPutByte(0x1B); ShellPrintf("[m"); ShellPrintf("\n\r");}
+#define TRACE_ERR(...)			{ShellPutByte(0x1B); ShellPrintf("[0;0;31mERR!: "); ShellPrintf(__VA_ARGS__); ShellPutByte(0x1B); ShellPrintf("[m"); ShellPrintf("\n\r");}
 
 #if (DEBUG_ENABLE == 1)
 

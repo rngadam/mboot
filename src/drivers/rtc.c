@@ -51,11 +51,11 @@ void Reset_RTC(void)
 // 	while(((rRTC_SR & (1 << 0)) != (1 << 0)) && (++timeout < 10000));
 	while((rRTC_SR & (1 << 0)) != (1 << 0));
 	rRTC_SCCR = (1 << 0);
-	rRTC_CALR = (0x8<<24) + (0x7<<21) + (0x7<<16) + (0x12<<8) + (0x20<<0);
+	rRTC_CALR = (0x6<<24) + (0x1<<21) + (0x8<<16) + (0x12<<8) + (0x20<<0);
 	rRTC_CR &= ~(1 << 1);
 	rRTC_SCCR |= (1 << 2);
 	
-	TRACE_WRN("Invalid time reset to: Jul-8-2012, 10:30:00");
+	TRACE_WRN("Invalid time reset to: Aug-6-2012, 10:30:00");
 }
 
 void Init_RTC(void)
@@ -75,10 +75,10 @@ void Init_RTC(void)
 	if(d_year<2012){
 		Reset_RTC();
 	}
-	else if((d_year==2012)&&(d_mon<7)){
+	else if((d_year==2012)&&(d_mon<8)){
 		Reset_RTC();
 	}
-	else if((d_year==2012)&&(d_mon==7)&&(d_date<8)){
+	else if((d_year==2012)&&(d_mon==8)&&(d_date<6)){
 		Reset_RTC();
 	}
 	else{
